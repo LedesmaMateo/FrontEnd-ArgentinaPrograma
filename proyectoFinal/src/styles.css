@@ -1,0 +1,17 @@
+html, body{
+    background-color: #20d0d8;
+    font-family: 'Cabin', sans-serif;
+}
+
+small, h5, h6, p{
+    margin: 0;
+}
+
+fa-icon{
+    cursor: pointer;
+}
+
+
+
+
+

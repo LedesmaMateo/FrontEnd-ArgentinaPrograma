@@ -1,0 +1,34 @@
+.img_cont{
+    display: flex;
+    justify-content: center;
+}
+
+.box_perfil{
+    display: flex;
+    justify-content: center;
+}
+
+.imagen_perfil{
+    height: 180px;
+    width: 180px;
+    border-radius: 150px;
+    border: 5px outset #00b4d8;
+}
+
+.card-img-overlay{
+    margin-top: 120px;
+}
+
+
+h3, h4, p{
+    text-align: center;
+    color: white;
+}
+
+.boton{
+    display: flex;
+    justify-content: right;
+}
+
+
+

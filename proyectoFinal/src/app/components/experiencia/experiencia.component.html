@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <div class="card mb-3 color_item" style="max-width: 600px;">
+                <div class="row g-0">
+                    <div class="col-md-12 imagen" >
+                        <img src={{experiencia.logo}} height="100px">
+                    </div>
+                </div>
+                
+                <div class="col-md-12 info">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del puesto: {{experiencia.nombre_puesto}}</h5>
+                        <h6>Descripcion: {{experiencia.descripcion}}</h6>
+                        <b><p class="card-text"><small>Años: {{experiencia.inicio}} - {{experiencia.fin}}</small></p></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <fa-icon  [icon]="edit" [routerLink]="['/experiencia', experiencia.id]"></fa-icon>
+            <fa-icon  [icon]="del" (click)="delete(experiencia.id)"></fa-icon>
+        </div>
+    </div>
+</div>

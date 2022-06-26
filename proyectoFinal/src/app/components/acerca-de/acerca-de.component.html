@@ -1,0 +1,18 @@
+<div class="card bg-dark text-white">
+    <img src={{perfil.image_background_header}} class="card-img" alt="..." height="500px">
+    <div class="card-img-overlay">
+        <div class="box_perfil">
+            <img class="imagen_perfil" src={{perfil.image_perfil}} alt="">
+        </div>
+        <h3 class="card-title">{{perfil.nombre_completo}}</h3>
+        <h4 class="card-text">{{perfil.ocupacion}}</h4>
+        <p class="card-text">Soy de {{perfil.localidad}}</p>
+        <p class="card-text">Tengo {{edad}} años</p>
+        <div class="boton">
+            <button class="btn btn-success" [routerLink]="['/acerca-de', perfil.id]">Editar perfil</button>
+        </div>
+    </div>
+</div>
+
+
+

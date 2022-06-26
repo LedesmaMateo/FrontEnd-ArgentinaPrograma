@@ -1,0 +1,13 @@
+.navbar{
+    padding: 7px;
+    height: 60px;
+    border-bottom: solid 2px rgb(41, 39, 39);
+    box-shadow: 0px 6px 5px 3px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0px 6px 5px 3px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0px 6px 5px 3px rgba(0,0,0,0.7);
+}
+
+fa-icon{
+    padding: 5px;
+}
+

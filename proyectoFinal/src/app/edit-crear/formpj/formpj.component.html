@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form (ngSubmit)="guardar($event)" [formGroup]="form">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" value="hola" name="nombre_proyecto" [(ngModel)]="proyecto.nombre_proyecto" formControlName="nombre_proyecto">
+                <div *ngIf="form.get('nombre_proyecto')?.errors && form.get('nombre_proyecto')?.touched ">
+                    <small *ngIf="form.get('nombre_proyecto')?.hasError('required')">Campo obligatorio</small>
+                </div>
+                
+                <label for="">Descripcion</label>
+                <input type="text" class="form-control" name="descripcion" [(ngModel)]="proyecto.descripcion" formControlName="descripcion">
+                <div *ngIf="form.get('descripcion')?.errors && form.get('descripcion')?.touched ">
+                    <small *ngIf="form.get('descripcion')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+                <label for="">Link a GitHub</label>
+                <input type="text" class="form-control" name="link" [(ngModel)]="proyecto.link" formControlName="link">
+                <div *ngIf="form.get('link')?.errors && form.get('link')?.touched ">
+                    <small *ngIf="form.get('link')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+                <label for="">Imagen</label>
+                <input type="file" class="form-control" name="img" (change)="capturarImg($event)" [(ngModel)]="proyecto.img" formControlName="img">
+
+                <button type="submit" class="btn btn-outline-success" *ngIf="id" [disabled]="form.invalid">Guardar</button>
+                <button type="button" (click)="crear($event)" class="btn btn-outline-success" *ngIf="!id" [disabled]="form.invalid">Crear</button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

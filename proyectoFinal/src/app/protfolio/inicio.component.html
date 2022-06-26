@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <app-acerca-de *ngFor="let data of perfil"
+      [perfil]="data"
+      ></app-acerca-de>
+
+    </div>
+
+    <div class="col-12">
+      <div class="titulo"><h3>Experiencia</h3></div>
+      <app-experiencia *ngFor="let data of experiencia"
+                        [experiencia]="data"
+                        (deleteExp)="deleteExp($event)"
+      ></app-experiencia>
+      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/experiencia']">{{text}}</button></div>
+
+
+      <div class="titulo"><h3>Educación</h3></div>
+      <app-educacion *ngFor="let data of educacion"
+                      [educacion]="data"
+                      (deleteEd)="deleteEd($event)"
+      ></app-educacion>
+      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/educacion']">{{text}}</button></div>
+
+      <div class="titulo"><h3>Habilidades</h3></div>
+      <app-habilidades></app-habilidades>
+
+      <div class="titulo"><h3>Proyectos</h3></div>
+      <app-proyectos *ngFor="let data of proyecto"
+                      [proyectos]="data"
+                      (deletePj)="deletePj($event)"
+      ></app-proyectos>
+      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/proyectos']">{{text}}</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 foot">
+        <b><p>Developed and designed by Mateo Ledesma. ©2022. All rights reserved.</p></b>
+    </div>
+  </div>
+</div>
+
+

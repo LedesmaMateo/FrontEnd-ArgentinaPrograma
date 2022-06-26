@@ -1,0 +1,63 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form (ngSubmit)="guardar($event)" [formGroup]="form">
+                <label for="nombre">Nombre de la institucion</label>
+                <input type="text" class="form-control" name="escuela" formControlName="escuela" [(ngModel)]="educacion.escuela">
+                <div *ngIf="form.get('escuela')?.errors && form.get('escuela')?.touched ">
+                    <small *ngIf="form.get('escuela')?.hasError('required')">Campo obligatorio</small>
+                </div>
+            
+                <label for="">Descripcion</label>
+                <input type="text" class="form-control" name="descripcion" [(ngModel)]="educacion.descripcion" formControlName="descripcion">
+                <div *ngIf="form.get('descripcion')?.errors && form.get('descripcion')?.touched ">
+                    <small *ngIf="form.get('descripcion')?.hasError('required')">Campo obligatorio</small>
+                </div>
+            
+                <label for="">Titulo</label>
+                <input type="text" class="form-control" name="titulo" [(ngModel)]="educacion.titulo" formControlName="titulo">
+                <div *ngIf="form.get('titulo')?.errors && form.get('titulo')?.touched ">
+                    <small *ngIf="form.get('titulo')?.hasError('required')">Campo obligatorio</small>
+                </div>
+            
+                <label for="">Inicio</label>
+                <input type="number" class="form-control" name="inicio" [(ngModel)]="educacion.inicio"  formControlName="inicio">
+                <div *ngIf="form.get('inicio')?.errors && form.get('inicio')?.touched ">
+                    <small *ngIf="form.get('inicio')?.hasError('required')">Campo obligatorio</small>
+                    <small *ngIf="form.get('inicio')?.hasError('min')">Año invalido</small>
+                    <small *ngIf="form.get('inicio')?.hasError('max')">Año invalido</small>
+                </div>
+            
+                <label for="">Fin</label>
+                <input type="number" class="form-control" name="fin" [(ngModel)]="educacion.fin" formControlName="fin">
+                <div *ngIf="form.get('fin')?.errors && form.get('fin')?.touched ">
+                    <small *ngIf="form.get('fin')?.hasError('required')">Campo obligatorio</small>
+                    <small *ngIf="form.get('fin')?.hasError('min')">Año invalido</small>
+                    <small *ngIf="form.get('fin')?.hasError('max')">Año invalido</small>
+                </div>
+            
+                <label for="">Estado</label>
+                <input type="text" class="form-control" list="datalistOptions" name="estado" [(ngModel)]="educacion.estado" formControlName="estado">
+                <datalist id="datalistOptions">
+                    <option value="En curso">
+                    <option value="Finalizado">
+                    <option value="Abandonado">
+                </datalist>
+                <div *ngIf="form.get('estado')?.errors && form.get('estado')?.touched ">
+                    <small *ngIf="form.get('estado')?.hasError('required')">Campo obligatorio</small>
+                </div>
+            
+                <label for="">Imagen de perfil</label>
+                <input type="file" class="form-control" name="img" (change)="capturarImg($event)" [(ngModel)]="educacion.img" formControlName="img">
+            
+                
+                <button type="submit" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="id">Guardar</button>
+                <button type="button" (click)="crear($event)" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="!id">Crear</button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

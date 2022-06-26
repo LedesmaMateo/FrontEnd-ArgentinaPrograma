@@ -1,0 +1,24 @@
+<form action="" [formGroup]="form" (ngSubmit)="guardar($event)">
+    <input type="file" class="form-control" name="img" (change)="captureFile($event)" formControlName="img"> 
+    <input type="text" name="nombre" formControlName="nombre">
+    <button type="submit"> Guardar </button>
+</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <div class="card mb-3 color_item" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-3 item" *ngFor="let data of habilidad">
+                        <div>
+                            <img src={{data.img}} alt="">
+                            <p><small>{{data.nombre}}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

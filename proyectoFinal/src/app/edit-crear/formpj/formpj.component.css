@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    padding-top: 20px;
+}
+
+small{
+    color: red;
+}
+
+button{
+    margin: 13px 5px;
+}

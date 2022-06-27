@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-
       <app-acerca-de *ngFor="let data of perfil"
       [perfil]="data"
       ></app-acerca-de>
-
     </div>
 
     <div class="col-12">
       <div class="titulo"><h3>Experiencia</h3></div>
-      <app-experiencia *ngFor="let data of experiencia"
+      <app-experiencia  *ngFor="let data of experiencia"
                         [experiencia]="data"
                         (deleteExp)="deleteExp($event)"
       ></app-experiencia>

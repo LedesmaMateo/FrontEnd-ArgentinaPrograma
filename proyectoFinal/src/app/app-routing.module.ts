@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './protfolio/inicio.component';
+import { InicioComponent } from './portfolio/inicio.component';
 import { FormadComponent } from './edit-crear/formad/formad.component';
 import { FormexComponent } from './edit-crear/formex/formex.component';
 import { FormedComponent } from './edit-crear/formed/formed.component';

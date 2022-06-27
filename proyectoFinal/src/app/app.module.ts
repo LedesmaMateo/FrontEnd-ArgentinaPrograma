@@ -13,7 +13,7 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { InicioComponent } from './protfolio/inicio.component';
+import { InicioComponent } from './portfolio/inicio.component';
 import { FormedComponent } from './edit-crear/formed/formed.component';
 import { FormadComponent } from './edit-crear/formad/formad.component';
 import { FormpjComponent } from './edit-crear/formpj/formpj.component';

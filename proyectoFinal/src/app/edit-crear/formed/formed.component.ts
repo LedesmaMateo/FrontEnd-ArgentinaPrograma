@@ -27,6 +27,8 @@ export class FormedComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params['id'];
     if(this.id){
       this.apiService.getUnaEduc(this.id).subscribe((data) => this.educacion = data);
+      console.log(this.educacion);
+      
     }  
   }
 

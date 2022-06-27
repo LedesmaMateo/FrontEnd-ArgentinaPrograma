@@ -1,17 +1,26 @@
 <div class="container">
-  <div class="card mb-3 color_item" style="max-width: fluid;">
-    <div class="row g-0">
-      <div class="col-md-2">
-        <img src={{educacion.img}} class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h4 class="card-title">{{educacion.escuela}}</h4>
-          <h5 class="card-text">Titulo: {{educacion.titulo}}</h5>
-          <p class="card-text">Periodo: {{educacion.inicio}} - {{educacion.fin}}</p>
-          <p class="card-text">Estado: {{educacion.estado}}</p>
+  <div class="row">
+    <div class="col-7">
+      <div class="card mb-3 color_item" style="max-width: fluid;">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src={{educacion.img}} class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h4 class="card-text">{{educacion.escuela}}</h4>
+              <h5 class="card-text">Titulo: {{educacion.titulo}}</h5>
+              <p class="card-text">Periodo: {{educacion.inicio}} - {{educacion.fin}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    
+    <div class="col-1">
+        <fa-icon  [icon]="edit" [routerLink]="['/educacion', educacion.id]"></fa-icon>
+        <fa-icon  [icon]="del" (click)="delete(educacion.id)"></fa-icon>
+    </div>
   </div>
+  
 </div>

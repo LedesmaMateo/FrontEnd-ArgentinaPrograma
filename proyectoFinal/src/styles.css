@@ -3,8 +3,9 @@ html, body{
     font-family: 'Cabin', sans-serif;
 }
 
-small, h5, h6, p{
+small, h4, h5, h6, h3, p{
     margin: 0;
+    padding: 0;
 }
 
 fa-icon{

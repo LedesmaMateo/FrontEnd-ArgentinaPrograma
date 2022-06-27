@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
+    <div class="col-2"></div>
+
     <div class="col-7">
       <div class="card mb-3 color_item" style="max-width: fluid;">
         <div class="row g-0">
           <div class="col-md-2">
             <img src={{educacion.img}} class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-8">
             <div class="card-body">
-              <h4 class="card-text">{{educacion.escuela}}</h4>
-              <h5 class="card-text">Titulo: {{educacion.titulo}}</h5>
+              <h5 class="card-tittle">{{educacion.escuela}}</h5>
+              <h6 class="card-text">Titulo: {{educacion.titulo}}</h6>
               <p class="card-text">Periodo: {{educacion.inicio}} - {{educacion.fin}}</p>
             </div>
           </div>
@@ -21,6 +23,8 @@
         <fa-icon  [icon]="edit" [routerLink]="['/educacion', educacion.id]"></fa-icon>
         <fa-icon  [icon]="del" (click)="delete(educacion.id)"></fa-icon>
     </div>
+
+    <div class="col-2"></div>
   </div>
   
 </div>

@@ -4,7 +4,13 @@
       <app-acerca-de *ngFor="let data of perfil"
       [perfil]="data"
       ></app-acerca-de>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-2"></div>
+
+    <div class="col-8">
       <div class="titulo"><h3>Experiencia</h3></div>
       <app-experiencia  *ngFor="let data of experiencia"
                         [experiencia]="data"
@@ -30,15 +36,11 @@
       ></app-proyectos>
       <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/proyectos']">{{text}}</button></div>
     </div>
+
+    <div class="col-2"></div>
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 foot">
-        <b><p>Developed and designed by Mateo Ledesma. ©2022. All rights reserved.</p></b>
-    </div>
-  </div>
-</div>
+<app-footer></app-footer>
 
 

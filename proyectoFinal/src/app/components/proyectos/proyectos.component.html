@@ -1,29 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-
-    <div class="col-7">
-      <div class="card mb-3 color_item" style="max-width: flex;">
-        <div class="row g-0">
-          <div class="col-md-12 imagen">
-            <img src={{proyectos.img}} width="200px">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{proyectos.nombre_proyecto}}</h5>
-              <p class="card-text">{{proyectos.descripcion}}</p>
-              <a href={{proyectos.link}} target="_blank"><button class="btn btn-outline-success">Ver en GitHub</button></a>
-            </div>
+<div class="row">
+  <div class="col-10 col-lg-11">
+    <div class="card mb-3 color_item" style="max-width: flex;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src={{proyectos.img}} class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{proyectos.nombre_proyecto}}</h5>
+            <p class="card-text">{{proyectos.descripcion}}</p>
+            <a href={{proyectos.link}} target="_blank"><button class="btn btn-outline-success">Ver en GitHub</button></a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="col-1">
-      <fa-icon  [icon]="edit" [routerLink]="['/proyecto', proyectos.id]"></fa-icon>
-      <fa-icon  [icon]="del" (click)="delete(proyectos.id)"></fa-icon>
-    </div>
-
-    <div class="col-2"></div>   
+  </div>
+  
+  <div class="col-1">
+    <fa-icon  [icon]="edit" [routerLink]="['/proyecto', proyectos.id]"></fa-icon>
+    <fa-icon  [icon]="del" (click)="delete(proyectos.id)"></fa-icon>
   </div>
 </div>
+

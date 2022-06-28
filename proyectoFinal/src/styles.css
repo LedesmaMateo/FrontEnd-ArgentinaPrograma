@@ -1,5 +1,5 @@
 html, body{
-    background-color: #20d0d8;
+    background-color: #08d0ff;
     font-family: 'Cabin', sans-serif;
 }
 
@@ -12,6 +12,12 @@ fa-icon{
     cursor: pointer;
 }
 
+.color_item{
+    background-color: #1fc3cc;
+    box-shadow: 5px 0px 24px 2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 0px 24px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 0px 24px 2px rgba(0,0,0,0.75);
+}
 
 
 

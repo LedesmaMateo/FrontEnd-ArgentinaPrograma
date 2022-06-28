@@ -20,6 +20,7 @@ import { FormpjComponent } from './edit-crear/formpj/formpj.component';
 import { FormexComponent } from './edit-crear/formex/formex.component';
 import { LoginComponent } from './login/login.component';
 import { InterceptorService } from './services/interceptor.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { InterceptorService } from './services/interceptor.service';
     FormadComponent,
     FormpjComponent,
     FormexComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

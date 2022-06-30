@@ -1,20 +1,20 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <form (ngSubmit)="login($event)" [formGroup]="form">
                 <label for="usernameOrEmail">Usuario o email</label>
                 <input type="usernameOrEmail" class="form-control" name="usernameOrEmail" formControlName="usernameOrEmail">
                 <div *ngIf="form.get('usernameOrEmail')?.errors && form.get('usernameOrEmail')?.touched ">
-                    <small *ngIf="form.get('usernameOrEmail')?.hasError('required')">Campo obligatorio</small>
+                    <small *ngIf="form.get('usernameOrEmail')?.hasError('required')">Ingrese un usuario o email</small>
                 </div>
 
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" name="password" formControlName="password">
                 <div *ngIf="form.get('password')?.errors && form.get('password')?.touched ">
-                    <small *ngIf="form.get('password')?.hasError('required')">Campo obligatorio</small>
+                    <small *ngIf="form.get('password')?.hasError('required')">Ingrese una contraseña</small>
                 </div>
 
-                <h6 *ngIf="invalid"> Usuario o contraseña incorrectos</h6>
+                <h6 *ngIf=""> Usuario o contraseña incorrectos</h6>
 
                 <button class="btn btn-outline-success" type="submit" [disabled]="form.invalid"> Ingresar </button>
             </form>

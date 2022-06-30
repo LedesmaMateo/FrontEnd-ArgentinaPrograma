@@ -11,17 +11,16 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   form: FormGroup 
   autenticado: any;
-  invalid: boolean;
 
   constructor(private formBuild: FormBuilder,
-              private routes: Router,
               private authService: AuthService) 
   {
     this.formBuilder();
   }
 
   ngOnInit(): void {  
-
+    console.log(this.authService.UsuarioAutenticado);
+    
   } 
 
   private formBuilder(){
@@ -33,15 +32,24 @@ export class LoginComponent implements OnInit {
 
   login(event: Event){
     event.preventDefault();
-    const usernameOrEmail = this.form.value.usernameOrEmail;
-    const password = this.form.value.password;
+    if(this.form.valid){
+        this.authService.login(this.form.value).subscribe(() =>{
+          this.autehticado()
+          
+        });
+    }
 
-    this.authService.login(usernameOrEmail, password).subscribe(() => { 
-      this.routes.navigate(['/inicio'])
-    }); 
-      
+    this.autehticado()
   }
 
-
+  autehticado(){
+    if(this.authService.UsuarioAutenticado != null){
+      this.autenticado = true;
+      console.log("Si");
+    }else{
+      console.log("no");
+      
+    }
+  }
 
 }

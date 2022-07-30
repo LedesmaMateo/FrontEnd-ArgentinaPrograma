@@ -18,8 +18,11 @@ export class FormadComponent implements OnInit {
   image_background_header: string;
   image_perfil: string;
 
-  constructor(private apiService: ApiServiceService, private activetedRoute: ActivatedRoute,
-              private routes: Router,private formBuild: FormBuilder, private sanitizer: DomSanitizer)
+  constructor(private apiService: ApiServiceService,
+              private activetedRoute: ActivatedRoute,
+              private routes: Router,
+              private formBuild: FormBuilder, 
+              private sanitizer: DomSanitizer)
 
   { 
     this.formBuilder();
@@ -28,7 +31,6 @@ export class FormadComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activetedRoute.snapshot.params['id'];
     this.apiService.getUnPerfil(this.id).subscribe((data) => this.perfil = data); 
-    
   }
 
   private formBuilder(){

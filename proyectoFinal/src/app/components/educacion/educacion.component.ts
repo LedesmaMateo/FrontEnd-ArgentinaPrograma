@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { educacion } from 'src/app/Interfaces/iEducacion';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import { faDeleteLeft} from '@fortawesome/free-solid-svg-icons/faDeleteLeft'
 
 @Component({
   selector: 'app-educacion',
@@ -10,16 +11,18 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 export class EducacionComponent implements OnInit {
   @Input() educacion: educacion = {}
   @Output() deleteEd = new EventEmitter();
-
-  del = faTrash;
-  edit = faPen;
+  del = faDeleteLeft;
+  edit = faPenToSquare;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   delete(id: any){
-    this.deleteEd.emit(id)
+    var res = window.confirm("Desea eliminar?")
+    if(res){
+      this.deleteEd.emit(id)
+    }
   }
 
 }

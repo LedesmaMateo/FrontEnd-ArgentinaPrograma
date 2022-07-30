@@ -1,14 +1,10 @@
-.container{
-    margin-top: 15px;
-}
-
-img{
-    height: 120px;
-}
-
-
 fa-icon{
     display: block;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
 }
 
 

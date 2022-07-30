@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  config:{
+    apiUrl: "https://backend-argprograma.herokuapp.com/"
+  }
 };

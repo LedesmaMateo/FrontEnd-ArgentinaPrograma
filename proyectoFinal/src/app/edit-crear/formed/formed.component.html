@@ -1,8 +1,8 @@
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <form (ngSubmit)="guardar($event)" [formGroup]="form">
+    <form (ngSubmit)="guardar($event)" [formGroup]="form">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
                 <label for="nombre">Nombre de la institucion</label>
                 <input type="text" class="form-control" name="escuela" formControlName="escuela" [(ngModel)]="educacion.escuela">
                 <div *ngIf="form.get('escuela')?.errors && form.get('escuela')?.touched ">
@@ -42,22 +42,28 @@
                 <datalist id="datalistOptions">
                     <option value="En curso">
                     <option value="Finalizado">
-                    <option value="Abandonado">
+                    <option value="Sin terminar">
                 </datalist>
                 <div *ngIf="form.get('estado')?.errors && form.get('estado')?.touched ">
                     <small *ngIf="form.get('estado')?.hasError('required')">Campo obligatorio</small>
                 </div>
+            </div>
             
-                <label for="">Imagen de perfil</label>
+            <div class="col-12 col-md-6 col-lg-6">
+                <label for="">Imagen</label>
                 <input type="file" class="form-control" name="img" (change)="capturarImg($event)" [(ngModel)]="educacion.img" formControlName="img">
-            
-                
-                <button type="submit" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="id">Guardar</button>
-                <button type="button" (click)="crear($event)" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="!id">Crear</button>
-                <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
-            </form>
+                <img class="rounded mx-auto d-block" src={{img}} width="150px">
+            </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="id">Guardar</button>
+                <button type="button" (click)="crear($event)" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="!id"> Crear </button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 

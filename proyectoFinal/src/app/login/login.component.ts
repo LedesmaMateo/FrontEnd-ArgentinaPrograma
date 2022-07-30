@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,17 +11,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup 
-  autenticado: any;
+  auth: boolean = false;
+  spinner: boolean = false;
 
   constructor(private formBuild: FormBuilder,
-              private authService: AuthService) 
+              private authService: AuthService,
+              private routes: Router) 
   {
     this.formBuilder();
   }
 
-  ngOnInit(): void {  
-    console.log(this.authService.UsuarioAutenticado);
-    
+  ngOnInit(): void {
+
   } 
 
   private formBuilder(){
@@ -31,25 +33,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(event: Event){
-    event.preventDefault();
+    event.preventDefault()
     if(this.form.valid){
-        this.authService.login(this.form.value).subscribe(() =>{
-          this.autehticado()
-          
-        });
+      this.spinner = true;
+      this.authService.login(this.form.value).subscribe((data:any) => {
+        console.log("Token: ", data );
+        this.routes.navigate(['/inicio'])
+      });
     }
-
-    this.autehticado()
-  }
-
-  autehticado(){
-    if(this.authService.UsuarioAutenticado != null){
-      this.autenticado = true;
-      console.log("Si");
-    }else{
-      console.log("no");
-      
-    }
-  }
-
+  } 
 }
+
+
+

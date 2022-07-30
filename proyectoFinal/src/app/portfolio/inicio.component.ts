@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { educacion } from '../Interfaces/iEducacion';
 import { experiencia } from '../Interfaces/iExperiencia';
-import { habilidad } from '../Interfaces/iHabilidad';
 import { perfil } from '../Interfaces/iPerfil';
 import { proyectos } from '../Interfaces/iProyectos';
 import { ApiServiceService } from '../services/api-service.service';
@@ -12,7 +11,7 @@ import { ApiServiceService } from '../services/api-service.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  text: string = 'Agregar';
+  text: string = 'Añadir';
   perfil: perfil[] = [];
   experiencia: experiencia[] = [];
   educacion: educacion[] = [];

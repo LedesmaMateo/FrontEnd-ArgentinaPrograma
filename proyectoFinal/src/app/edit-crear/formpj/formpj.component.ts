@@ -14,6 +14,7 @@ export class FormpjComponent implements OnInit {
   form: FormGroup;
   id:number;
   proyecto: proyectos = {}
+  img: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private apiService: ApiServiceService,
@@ -45,6 +46,7 @@ export class FormpjComponent implements OnInit {
 
   crear(event: Event){
     event.preventDefault();
+    this.form.value.img = this.img;
     if(this.form.valid){
       this.apiService.createProy(this.form.value).subscribe(() =>{
         this.router.navigate(['/inicio']);
@@ -54,6 +56,7 @@ export class FormpjComponent implements OnInit {
 
   guardar(event: Event){
     event.preventDefault();
+    this.form.value.img = this.img;
     if(this.form.valid){
       this.apiService.putProj(this.id, this.form.value).subscribe(() =>{
         this.router.navigate(['/inicio']);
@@ -64,7 +67,7 @@ export class FormpjComponent implements OnInit {
   capturarImg(event: any){
     const archivoCapturado = event.target.files[0]
     this.extraerBase64(archivoCapturado).then((imagen: any) =>{
-      this.form.value.img = imagen.base;
+      this.img = imagen.base;
     })
   }
 

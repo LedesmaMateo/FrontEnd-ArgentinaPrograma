@@ -14,6 +14,7 @@ export class FormexComponent implements OnInit {
   form: FormGroup;
   id: number;
   experiencia: experiencia = {};
+  logo: string;
 
   constructor(private formBuild: FormBuilder, 
               private activatedRoute: ActivatedRoute,
@@ -45,6 +46,7 @@ export class FormexComponent implements OnInit {
 
   crear(event: Event){
     event.preventDefault();
+    this.form.value.logo = this.logo;
     if(this.form.valid){
       this.apiService.createExp(this.form.value).subscribe(() =>{
         this.router.navigate(['/inicio']);
@@ -54,6 +56,7 @@ export class FormexComponent implements OnInit {
 
   guardar(event: Event){
     event.preventDefault();
+    this.form.value.logo = this.logo;
     if(this.form.valid){
       this.apiService.putExp(this.id, this.form.value).subscribe(() =>{
         this.router.navigate(['/inicio']);
@@ -64,7 +67,7 @@ export class FormexComponent implements OnInit {
   capturarImg(event: any){
     const archivoCapturado = event.target.files[0]
     this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.form.value.logo = imagen.base; 
+      this.logo = imagen.base; 
     })
   }
 
@@ -76,7 +79,6 @@ export class FormexComponent implements OnInit {
     reader.onload = () => {
       resolve({
         base: reader.result
-        
       });
     };
     reader.onerror = error => {

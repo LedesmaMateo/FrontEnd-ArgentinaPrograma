@@ -1,8 +1,7 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <form (ngSubmit)="guardar($event)" [formGroup]="form">
-
+    <form (ngSubmit)="guardar($event)" [formGroup]="form">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
                 <label for="nombre">Nombre del puesto</label>
                 <input type="text" class="form-control" name="nombre_puesto" [(ngModel)]="experiencia.nombre_puesto" formControlName="nombre_puesto">
                 <div *ngIf="form.get('nombre_puesto')?.errors && form.get('nombre_puesto')?.touched ">
@@ -30,14 +29,21 @@
                     <small *ngIf="form.get('fin')?.hasError('min')">Año invalido</small>
                     <small *ngIf="form.get('fin')?.hasError('max')">Año invalido</small>
                 </div>
+            </div>
 
-                <label for="">Imagen</label>
+            <div class="col-12 col-md-6 col-lg-6">
+                <label for=""> Logo de la empresa </label>
                 <input type="file" class="form-control" name="logo" (change)="capturarImg($event)" [(ngModel)]="experiencia.logo" formControlName="logo">
+                <img class="rounded mx-auto d-block" src={{logo}} width="150px">
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12">
                 <button type="submit" class="btn btn-outline-success" *ngIf="id" [disabled]="form.invalid">Guardar</button>
                 <button type="button" (click)="crear($event)" class="btn btn-outline-success" *ngIf="!id" [disabled]="form.invalid">Crear</button>
                 <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 </div>

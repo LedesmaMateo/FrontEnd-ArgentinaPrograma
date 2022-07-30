@@ -1,5 +1,4 @@
 .container{
-    display: flex;
     padding-top: 20px;
 }
 
@@ -9,4 +8,8 @@ small{
 
 button{
     margin: 13px 5px;
+}
+
+img{
+    margin-top: 10px;
 }

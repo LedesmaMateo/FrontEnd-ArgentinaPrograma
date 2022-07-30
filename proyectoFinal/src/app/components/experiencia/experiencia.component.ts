@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { experiencia } from 'src/app/Interfaces/iExperiencia';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import { faDeleteLeft} from '@fortawesome/free-solid-svg-icons/faDeleteLeft'
 
 @Component({
   selector: 'app-experiencia',
@@ -10,15 +11,18 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 export class ExperienciaComponent implements OnInit {
   @Input() experiencia: experiencia = {}
   @Output() deleteExp = new EventEmitter();
-  del = faTrash;
-  edit = faPen;
+  del = faDeleteLeft;
+  edit = faPenToSquare;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   delete(id: any){
-    this.deleteExp.emit(id);
+    var res = window.confirm("Desea eliminar?")
+    if(res){
+      this.deleteExp.emit(id);
+    }
   }
 
 }

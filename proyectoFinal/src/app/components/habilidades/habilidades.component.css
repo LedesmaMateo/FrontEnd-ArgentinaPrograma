@@ -1,7 +1,10 @@
 .col{
-    padding: 7px;
+    margin-top: 10px;
 }
 
+.card{
+    padding: 3px;
+}
 
 h5{
     text-align: center;

@@ -17,94 +17,95 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiServiceService {
-  
+  url = 'https://backend-argprograma.herokuapp.com/api'
+
   constructor(private http: HttpClient) { }
 
   getPerfil(): Observable<any>{
-    return this.http.get<perfil>('api/profile/traer');
+    return this.http.get<perfil>(`${this.url}/profile/traer`);
   }
 
   getExperiencia(): Observable<any>{
-    return this.http.get<experiencia>('api/experience/traer');
+    return this.http.get<experiencia>(`${this.url}/experience/traer`);
   }
 
   getEducacion(): Observable<any>{
-    return this.http.get<educacion>('api/education/traer');
+    return this.http.get<educacion>(`${this.url}/education/traer`);
   }
 
   getProjects(): Observable<any>{
-    return this.http.get<proyectos>('api/project/traer');
+    return this.http.get<proyectos>(`${this.url}/project/traer`);
   }
 
   getHabilidad(): Observable<any>{
-    return this.http.get<habilidad>('api/skill/traer');
+    return this.http.get<habilidad>(`${this.url}/skill/traer`);
   }
 
   getUnPerfil(id: number):Observable<perfil>{
-    return this.http.get<perfil>(`api/profile/traer/${id}`);
+    return this.http.get<perfil>(`${this.url}/profile/traer/${id}`);
   }
 
   getUnaExp(id: number): Observable<any>{
-    return this.http.get<experiencia>(`api/experience/traer/${id}`);
+    return this.http.get<experiencia>(`${this.url}/experience/traer/${id}`);
   }
 
   getUnaEduc(id: number): Observable<any>{
-    return this.http.get<educacion>(`api/education/traer/${id}`)
+    return this.http.get<educacion>(`${this.url}/education/traer/${id}`)
   }
 
   getUnProj(id: number): Observable<any>{
-    return this.http.get<proyectos>(`api/project/traer/${id}`);
+    return this.http.get<proyectos>(`${this.url}/project/traer/${id}`);
   }
 
   deleteExp(id: number){
-    return this.http.delete(`api/experience/borrar/${id}`);
+    return this.http.delete(`${this.url}/experience/borrar/${id}`);
   }
 
   deleteEduc(id: number){
-    return this.http.delete(`api/education/borrar/${id}`);
+    return this.http.delete(`${this.url}/education/borrar/${id}`);
   }
 
   deleteProj(id: number){
-    return this.http.delete(`api/project/borrar/${id}`);
+    return this.http.delete(`${this.url}/project/borrar/${id}`);
   }
 
   putPerf(id: number, perfil: perfil): Observable<any>{
-    const url = `api/profile/editar/${id}`
+    const url = `${this.url}/profile/editar/${id}`
     return this.http.put<perfil>(url, perfil, httpOptions);
   }
 
   putExp(id: number, experiencia: experiencia): Observable<any>{
-    const url = `api/experience/editar/${id}`;
+    const url = `${this.url}/experience/editar/${id}`;
     return this.http.put<experiencia>(url, experiencia, httpOptions);
   }
 
   putEduc(id: number, educacion: educacion): Observable<any>{
-    const url = `api/education/editar/${id}`
+    const url = `${this.url}/education/editar/${id}`
     return this.http.put<educacion>(url, educacion, httpOptions);
   }
 
   putProj(id: number, proyecto: proyectos){
-    const url = `api/project/editar/${id}`
+    const url = `${this.url}/project/editar/${id}`
     return this.http.put<proyectos>(url, proyecto, httpOptions);
   }
 
   createExp(experiencia: experiencia):Observable<any>{
-    const url = 'api/experience/guardar'
+    const url = `${this.url}/experience/guardar`
     return this.http.post<experiencia>(url, experiencia);
   }
 
   createEduc(educacion: educacion):Observable<any>{
-    const url = 'api/education/guardar'
+    const url = `${this.url}/education/guardar`
     return this.http.post<educacion>(url, educacion);
   }
 
   createProy(proyecto: proyectos):Observable<any>{
-    const url = 'api/project/guardar'
+    const url = `${this.url}/project/guardar`
     return this.http.post<proyectos>(url, proyecto);
   }
 
   crearHabilidad(habilidad: habilidad):Observable<any>{
-    const url = 'api/skill/guardar'
+    const url = `${this.url}/skill/guardar`
     return this.http.post<habilidad>(url, habilidad);
   }
 }

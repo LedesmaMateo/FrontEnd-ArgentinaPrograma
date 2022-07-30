@@ -1,40 +1,52 @@
 <div class="container">
+    <form (ngSubmit)="guardar($event)" [formGroup]="form">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="perfil.nombre_completo" formControlName="nombre_completo">
+                <div *ngIf="form.get('nombre_completo')?.errors && form.get('nombre_completo')?.touched ">
+                    <small *ngIf="form.get('nombre_completo')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+                <label for="">Ocupacion</label>
+                <input type="text" class="form-control" name="ocupacion" [(ngModel)]="perfil.ocupacion" formControlName="ocupacion">
+                <div *ngIf="form.get('ocupacion')?.errors && form.get('ocupacion')?.touched ">
+                    <small *ngIf="form.get('ocupacion')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+                <label for="">Fecha de nacimiento</label>
+                <input type="date" class="form-control" name="fecha_nac" [(ngModel)]="perfil.fecha_nacimiento" formControlName="fecha_nacimiento">
+                <div *ngIf="form.get('fecha_nacimiento')?.errors && form.get('fecha_nacimiento')?.touched ">
+                    <small *ngIf="form.get('fecha_nacimiento')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+                <label for="">Localidad</label>
+                <input type="text" class="form-control" name="localidad" [(ngModel)]="perfil.localidad" formControlName="localidad">
+                <div *ngIf="form.get('localidad')?.errors && form.get('localidad')?.touched ">
+                    <small *ngIf="form.get('localidad')?.hasError('required')">Campo obligatorio</small>
+                </div>
+
+            </div>
+            
+            <div class="col-12 col-md-3 col-lg-3">
+                <label for="">Imagen de fondo</label>
+                <input type="file" class="form-control" name="image_background_header" (change)="capturarImgPortada($event)" [(ngModel)]="perfil.image_background_header" formControlName="image_background_header">
+                <img class="rounded mx-auto d-block" src={{image_background_header}} width="150px">
+            </div>
+
+            <div class="col-12 col-md-3 col-lg-3">
+                <label for="">Imagen de perfil</label>
+                <input type="file" class="form-control" name="image_perfil" (change)="capturarImgPerfil($event)" [(ngModel)]="perfil.image_perfil" formControlName="image_perfil">
+                <img class="rounded mx-auto d-block" src={{image_perfil}} width="150px">
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
-                <form (ngSubmit)="guardar($event)" [formGroup]="form">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" [(ngModel)]="perfil.nombre_completo" formControlName="nombre_completo">
-                    <div *ngIf="form.get('nombre_completo')?.errors && form.get('nombre_completo')?.touched ">
-                        <small *ngIf="form.get('nombre_completo')?.hasError('required')">Campo obligatorio</small>
-                    </div>
-
-                    <label for="">Ocupacion</label>
-                    <input type="text" class="form-control" name="ocupacion" [(ngModel)]="perfil.ocupacion" formControlName="ocupacion">
-                    <div *ngIf="form.get('ocupacion')?.errors && form.get('ocupacion')?.touched ">
-                        <small *ngIf="form.get('ocupacion')?.hasError('required')">Campo obligatorio</small>
-                    </div>
-
-                    <label for="">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" name="fecha_nac" [(ngModel)]="perfil.fecha_nacimiento" formControlName="fecha_nacimiento">
-                    <div *ngIf="form.get('fecha_nacimiento')?.errors && form.get('fecha_nacimiento')?.touched ">
-                        <small *ngIf="form.get('fecha_nacimiento')?.hasError('required')">Campo obligatorio</small>
-                    </div>
-
-                    <label for="">Localidad</label>
-                    <input type="text" class="form-control" name="localidad" [(ngModel)]="perfil.localidad" formControlName="localidad">
-                    <div *ngIf="form.get('localidad')?.errors && form.get('localidad')?.touched ">
-                        <small *ngIf="form.get('localidad')?.hasError('required')">Campo obligatorio</small>
-                    </div>
-
-                    <label for="">Imagen de fondo</label>
-                    <input type="file" class="form-control" name="image_background_header" (change)="capturarImgPortada($event)" [(ngModel)]="perfil.image_background_header" formControlName="image_background_header">
-                    
-                    <label for="">Nueva imagen de perfil</label>
-                    <input type="file" class="form-control" name="image_perfil" (change)="capturarImgPerfil($event)" [(ngModel)]="perfil.image_perfil" formControlName="image_perfil">
-
-                    <button type="submit" class="btn btn-outline-success" [disabled]="form.invalid" *ngIf="id">Guardar</button>
-                    <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']">Cancelar</button>
-            </form>
+                <button type="submit" class="btn btn-outline-success" [disabled]="form.invalid">Guardar</button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/inicio']"> Cancelar </button>
+            </div>
         </div>
-    </div>    
-</div>
+    </form>
+</div>    
+

@@ -14,6 +14,7 @@ export class FormedComponent implements OnInit {
   educacion: educacion = {};
   form: FormGroup;
   id: number;
+  img: string;
 
   constructor(private formBuild: FormBuilder, private router: Router,
               private apiService: ApiServiceService, 
@@ -45,6 +46,7 @@ export class FormedComponent implements OnInit {
   }
   
   crear(event: Event){
+    this.form.value.img = this.img;
     event.preventDefault();
     if(this.form.valid){
       this.apiService.createEduc(this.form.value).subscribe(() => {
@@ -54,6 +56,7 @@ export class FormedComponent implements OnInit {
   }
 
   guardar(event: Event){
+    this.form.value.img = this.img;
     event.preventDefault();
     if(this.form.valid){
       this.apiService.putEduc(this.id, this.form.value).subscribe(() =>{
@@ -65,7 +68,7 @@ export class FormedComponent implements OnInit {
   capturarImg(event: any){
     const archivoCapturado = event.target.files[0]
     this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.form.value.img = imagen.base;
+      this.img = imagen.base;
     })
   }
 

@@ -2,14 +2,14 @@
   <div class="col-10 col-lg-11">
     <div class="card mb-3 color_item" style="max-width: flex;">
       <div class="row g-0">
-        <div class="col-md-4">
-          <img src={{proyectos.img}} class="img-fluid rounded-start" alt="...">
+        <div class="col-md-6">
+          <a href={{proyectos.img}} target="_blank"><img src={{proyectos.img}} class="img-fluid rounded-start" alt="..."></a>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <div class="card-body">
-            <h5 class="card-title">{{proyectos.nombre_proyecto}}</h5>
+            <h4 class="card-title">{{proyectos.nombre_proyecto}}</h4>
             <p class="card-text">{{proyectos.descripcion}}</p>
-            <a href={{proyectos.link}} target="_blank"><button class="btn btn-success btn-sm">Ver en GitHub</button></a>
+            <a href={{proyectos.link}} target="_blank" class="faGitHub"><fa-icon [icon]="faGitHub" size="3x"></fa-icon></a>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
   </div>
   
   <div class="col-1">
-    <fa-icon  [icon]="edit" [routerLink]="['/proyecto', proyectos.id]"></fa-icon>
+    <fa-icon  [icon]="edit" [routerLink]="['/proyecto', proyectos.id]" size="2x"></fa-icon>
     <fa-icon  [icon]="del" (click)="delete(proyectos.id)"></fa-icon>
   </div>
 </div>

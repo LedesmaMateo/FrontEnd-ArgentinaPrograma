@@ -27,9 +27,9 @@ export class HabilidadesComponent implements OnInit {
       for(let i of data){
         this.habilidad.push(i)
       }
-      })
       console.log(this.habilidad);
       
+      })
   }
 
   private formBuilder(){

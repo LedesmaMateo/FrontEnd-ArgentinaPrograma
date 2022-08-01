@@ -26,9 +26,7 @@ export class HabilidadesComponent implements OnInit {
     this.service.getHabilidad().subscribe((data) =>{
       for(let i of data){
         this.habilidad.push(i)
-      }
-      console.log(this.habilidad);
-      
+      } 
       })
   }
 
@@ -46,7 +44,6 @@ export class HabilidadesComponent implements OnInit {
     this.service.crearHabilidad(this.form.value).subscribe(() =>{
       console.log( this.form.value.img);
       console.log("gaurdado");
-      
     })
   }
 

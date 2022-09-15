@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -8,10 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AcercaDeComponent implements OnInit {
   @Input() perfil: any = {}
   edad: number = 0;
-  constructor() { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit(): void {
     this.calcularEdad();
+  }
+
+  autenticado(){
+    return this.authService.UsuarioAutenticado;
   }
 
   calcularEdad(){

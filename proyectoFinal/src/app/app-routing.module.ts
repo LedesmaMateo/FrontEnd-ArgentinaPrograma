@@ -9,10 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { GuardGuard } from './services/guard.guard';
 
 const routes: Routes = [
-  {path: '' , redirectTo:'iniciar-sesion', pathMatch: 'full'},
+  {path: '' , redirectTo:'inicio', pathMatch: 'full'},
 
   {path: 'iniciar-sesion', component: LoginComponent},
-  {path: 'inicio' , component: InicioComponent, canActivate:[GuardGuard]},
+  {path: 'inicio' , component: InicioComponent},
 
   {path: 'experiencia', component: FormexComponent},
   {path: 'educacion', component: FormedComponent},

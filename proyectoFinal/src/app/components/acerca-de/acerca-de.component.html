@@ -9,7 +9,7 @@
         <p class="card-text">Soy de {{perfil.localidad}}</p>
         <p class="card-text">Tengo {{edad}} años</p>
         <div class="boton">
-            <button class="btn btn-success" [routerLink]="['/acerca-de', perfil.id]">Editar perfil</button>
+            <button *ngIf="autenticado()" class="btn btn-success" [routerLink]="['/acerca-de', perfil.id]">Editar perfil</button>
         </div>
     </div>
 </div>

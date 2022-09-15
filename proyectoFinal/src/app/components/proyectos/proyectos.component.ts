@@ -3,6 +3,7 @@ import { proyectos } from 'src/app/Interfaces/iProyectos';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
 import { faDeleteLeft} from '@fortawesome/free-solid-svg-icons/faDeleteLeft'
 import { faGithub} from '@fortawesome/free-brands-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -16,9 +17,13 @@ export class ProyectosComponent implements OnInit {
   del = faDeleteLeft;
   edit = faPenToSquare;
   faGitHub = faGithub;
-  constructor() { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  autenticado(){
+    return this.authService.UsuarioAutenticado;
   }
 
   delete(id: any){

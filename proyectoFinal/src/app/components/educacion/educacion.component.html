@@ -18,8 +18,8 @@
   </div>
   
   <div class="col-1">
-      <fa-icon  [icon]="edit" [routerLink]="['/educacion', educacion.id]" size="2x"></fa-icon>
-      <fa-icon  [icon]="del" (click)="delete(educacion.id)"></fa-icon>
+      <fa-icon *ngIf="autenticado()"  [icon]="edit" [routerLink]="['/educacion', educacion.id]" size="2x"></fa-icon>
+      <fa-icon *ngIf="autenticado()"  [icon]="del" (click)="delete(educacion.id)"></fa-icon>
   </div>
 </div>
   

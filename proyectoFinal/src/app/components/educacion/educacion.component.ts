@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { educacion } from 'src/app/Interfaces/iEducacion';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
 import { faDeleteLeft} from '@fortawesome/free-solid-svg-icons/faDeleteLeft'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-educacion',
@@ -13,9 +14,13 @@ export class EducacionComponent implements OnInit {
   @Output() deleteEd = new EventEmitter();
   del = faDeleteLeft;
   edit = faPenToSquare;
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  autenticado(){
+    return this.authService.UsuarioAutenticado;
   }
 
   delete(id: any){

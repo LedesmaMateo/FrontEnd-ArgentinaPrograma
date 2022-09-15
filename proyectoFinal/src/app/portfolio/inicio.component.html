@@ -19,7 +19,7 @@
                         [experiencia]="data"
                         (deleteExp)="deleteExp($event)"
       ></app-experiencia>
-      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/experiencia']">{{text}}</button></div>  
+      <div *ngIf="autenticado()" class="boton"><button class="btn btn-outline-success" [routerLink]="['/experiencia']">{{text}}</button></div>  
 
 
       <div class="titulo"><h3>Educación</h3></div>
@@ -27,7 +27,7 @@
                       [educacion]="data"
                       (deleteEd)="deleteEd($event)"
       ></app-educacion>
-      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/educacion']">{{text}}</button></div>
+      <div *ngIf="autenticado()" class="boton"><button class="btn btn-outline-success" [routerLink]="['/educacion']">{{text}}</button></div>
 
       <div class="titulo"><h3>Habilidades</h3></div>
       <app-habilidades></app-habilidades>
@@ -37,7 +37,7 @@
                       [proyectos]="data"
                       (deletePj)="deletePj($event)"
       ></app-proyectos>
-      <div class="boton"><button class="btn btn-outline-success" [routerLink]="['/proyectos']">{{text}}</button></div>
+      <div *ngIf="autenticado()" class="boton"><button class="btn btn-outline-success" [routerLink]="['/proyectos']">{{text}}</button></div>
     </div>
 
     <div class="col-2"></div>

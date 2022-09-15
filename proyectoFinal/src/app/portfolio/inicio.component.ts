@@ -4,6 +4,7 @@ import { experiencia } from '../Interfaces/iExperiencia';
 import { perfil } from '../Interfaces/iPerfil';
 import { proyectos } from '../Interfaces/iProyectos';
 import { ApiServiceService } from '../services/api-service.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-inicio',
@@ -17,7 +18,8 @@ export class InicioComponent implements OnInit {
   educacion: educacion[] = [];
   proyecto: proyectos[] = [];
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.apiService.getPerfil().subscribe((data) => this.perfil = data);
@@ -45,6 +47,10 @@ export class InicioComponent implements OnInit {
     this.apiService.deleteProj(id).subscribe(() =>{
       this.proyecto = this.proyecto.filter((pj:proyectos) => pj.id !== id);
     })
+  }
+
+  autenticado(){
+    return this.authService.UsuarioAutenticado;
   }
 
 }

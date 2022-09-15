@@ -22,11 +22,15 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this.authService.logOut();
-    this.router.navigate([''])
+    this.router.navigate(['/inicio'])
   }
 
   showButton(route:string){
     return this.router.url === route;
+  }
+
+  autenticado(){
+    return this.authService.UsuarioAutenticado;
   }
 
 }
